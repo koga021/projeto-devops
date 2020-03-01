@@ -27,6 +27,8 @@ resource "aws_route" "DevOpsProject" {
   route_table_id         = "${aws_vpc.DevOpsProject.main_route_table_id}"
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = "${aws_internet_gateway.DevOpsProject.id}"
+
+  
 }
 
 resource "aws_subnet" "DevOpsProject-FE-01" {
@@ -88,4 +90,3 @@ resource "aws_nat_gateway" "DevOpsProject-01" {
   allocation_id = "${aws_eip.DevOpsProject.id}"
   subnet_id     = "${aws_subnet.DevOpsProject-FE-01.id}"
 }
-
